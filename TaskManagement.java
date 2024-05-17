@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.io.*;
 
 class TaskManagement {
-    HashMap<String, ArrayList<Task>> lists;
+    File file = new File("data.txt");
+
+	HashMap<String, ArrayList<Task>> lists;
     HashMap<Integer, Task> tasks;
 
     public TaskManagement() {
@@ -20,14 +22,17 @@ class TaskManagement {
         Task task = new Task(taskName, priority, description, dueDate);
         lists.get(priority).add(task);
         tasks.put(task.getId(), task);
+		savefileToFile();
     }
 
     public void doneTask(int taskId) {
         tasks.get(taskId).done();
+		savefileToFile();
     }
 
     public void deleteTask(int taskId) {
         tasks.remove(taskId);
+		savefileToFile();
     }
 
     public void printAllTask() {
