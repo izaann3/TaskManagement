@@ -50,6 +50,7 @@ class TaskManagement {
 
 	public void savefileToFile() {
 		try (FileWriter writer = new FileWriter(file)) {
+			writer.write("Esto es una prueba mia\n");
 			for (Task task : tasks.values()) {
 				writer.write(taskToFileString(task));
 				System.out.println("Dades escrites al fitxer.");
