@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.io.*;
 
 class TaskManagement {
-    File file = new File("data.txt");
+    File file = new File("/home/alumne/Escriptori/PB/uf4/taskmanagement/data.txt");
 
 	HashMap<String, ArrayList<Task>> lists;
     HashMap<Integer, Task> tasks;
@@ -47,6 +47,22 @@ class TaskManagement {
             System.out.println(task);
         }
     }
+
+	public void savefileToFile() {
+		try (FileWriter writer = new FileWriter(file)) {
+			for (Task task : tasks.values()) {
+				writer.write(taskToFileString(task));
+				System.out.println("Dades escrites al fitxer.");
+			}
+		} catch (IOException e) {
+			System.out.println("S'ha produït un error en escriure al fitxer.");
+			e.printStackTrace();
+		}
+	}
+	
+	private String taskToFileString(Task task) {
+		return task.getId() + "," + task.getTitle() + "," + task.getPriority() + "," + task.getDescription() + "," + task.getDueDate() + "," + task.isDone();
+	}
 }
 
 class Task {
