@@ -9,14 +9,15 @@ public class Main {
         	System.out.println("Hacemos Print de todo");
         	manager.printAllTask();
         	System.out.println("Hacemos Print de prioridad");
-       	 	manager.printTaskByPriority("Alta");
+       		manager.printTaskByPriority("Alta");
         	System.out.println("Hacemos que la tarea esté done");
         	manager.doneTask(1);
         	System.out.println("Hacemos Print de todo");
-       		manager.printAllTask();
+        	manager.printAllTask();
         	System.out.println("Eliminamos la tarea");
         	manager.deleteTask(1);
         	System.out.println("Hacemos Print de todo");
         	manager.printAllTask();
+		manager.savefileToFile();
     }
 }
